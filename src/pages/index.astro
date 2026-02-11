@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+import DronePlayer from "../components/DronePlayer.svelte";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Train your ear to hear the difference between Equal Temperament and Just Intonation." />
+    <title>PureIntervals — Ear Training for Violinists</title>
+  </head>
+  <body class="min-h-screen bg-slate-950 text-slate-50 flex flex-col selection:bg-emerald-500/30">
+
+    <!-- Header -->
+    <header class="pt-12 pb-4 text-center">
+      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
+        Pure<span class="text-emerald-400">Intervals</span>
+      </h1>
+      <p class="mt-2 text-slate-400 text-sm tracking-wide">
+        Train your ear for pure intonation.
+      </p>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 pb-16 gap-16">
+      <DronePlayer client:load />
+
+      <!-- Explainer -->
+      <section class="max-w-xl w-full space-y-8 text-sm text-slate-400 leading-relaxed">
+        <details class="group" open>
+          <summary class="cursor-pointer text-slate-200 font-medium text-base select-none flex items-center gap-2">
+            <span class="text-emerald-400 transition-transform group-open:rotate-90">▸</span>
+            What am I hearing?
+          </summary>
+          <p class="mt-3 pl-5">
+            You're hearing two notes played together — a root and an interval above it.
+            When you toggle between <span class="text-amber-400">Equal</span> and
+            <span class="text-emerald-400">Pure</span>, the upper note shifts by a few Hz.
+            That tiny difference changes whether the sound <em>wobbles</em> or <em>rings</em>.
+          </p>
+        </details>
+
+        <details class="group">
+          <summary class="cursor-pointer text-slate-200 font-medium text-base select-none flex items-center gap-2">
+            <span class="text-emerald-400 transition-transform group-open:rotate-90">▸</span>
+            Equal Temperament vs Just Intonation
+          </summary>
+          <div class="mt-3 pl-5 space-y-3">
+            <p>
+              <span class="text-amber-400 font-medium">Equal Temperament</span> is the tuning system
+              used by pianos and fretted instruments. It divides the octave into 12 equal steps
+              (each a ratio of 2<sup>1/12</sup>). This is a compromise — it lets you play in any key,
+              but no interval except the octave is perfectly pure.
+            </p>
+            <p>
+              <span class="text-emerald-400 font-medium">Just Intonation</span> (Pure tuning) uses
+              simple mathematical ratios: 3/2 for a perfect fifth, 5/4 for a major third.
+              These ratios produce sound waves that align cleanly, creating a resonant, "locked-in" sound
+              with no beating.
+            </p>
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="cursor-pointer text-slate-200 font-medium text-base select-none flex items-center gap-2">
+            <span class="text-emerald-400 transition-transform group-open:rotate-90">▸</span>
+            Why does this matter for violinists?
+          </summary>
+          <div class="mt-3 pl-5 space-y-3">
+            <p>
+              Unlike a piano, the violin has no frets — you choose your pitch.
+              Great string players instinctively tune intervals pure, adjusting by
+              tiny amounts to eliminate beating and make chords ring.
+            </p>
+            <p>
+              The "wobble" you hear in Equal Temperament is acoustic beating:
+              two close frequencies creating a pulsing amplitude. In the Major 3rd,
+              the equal-tempered F♯ is about 3 Hz sharp compared to the pure F♯.
+              That's enough to hear a clear tremor. Training your ear to notice
+              (and eliminate) that wobble is a core skill for intonation.
+            </p>
+          </div>
+        </details>
+
+        <details class="group">
+          <summary class="cursor-pointer text-slate-200 font-medium text-base select-none flex items-center gap-2">
+            <span class="text-emerald-400 transition-transform group-open:rotate-90">▸</span>
+            Tips for practice
+          </summary>
+          <div class="mt-3 pl-5 space-y-3">
+            <ul class="list-disc list-inside space-y-1.5">
+              <li>Start with the <span class="text-amber-400">Major 3rd</span> — the difference is most dramatic.</li>
+              <li>Toggle back and forth while listening. Focus on the "pulse" in Equal vs the "calm" in Pure.</li>
+              <li>Try the <span class="text-amber-400">Perfect 5th</span> next — the beating is subtler (~2 cents), which trains finer discrimination.</li>
+              <li>Use headphones for the clearest perception of beating.</li>
+              <li>Switch between Drone and Piano mode to hear how the effect differs with sustained vs decaying tones.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center space-y-2">
+      <p class="text-sm text-slate-500">If this helped your ear, consider supporting the project</p>
+      <a
+        href="https://ko-fi.com/joaow"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block text-sm text-slate-400 hover:text-emerald-400 transition-colors"
+      >
+        ☕ Buy me a coffee on Ko-fi
+      </a>
+    </footer>
+
+  </body>
+</html>
