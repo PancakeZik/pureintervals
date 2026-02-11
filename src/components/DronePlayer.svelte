@@ -125,8 +125,11 @@
 
   // ── Volume sync ────────────────────────────────────────────
   $effect(() => {
+    const v = volume;
     if (masterGain && ctx) {
-      masterGain.gain.setTargetAtTime(volume, ctx.currentTime, 0.05);
+      masterGain.gain.cancelScheduledValues(ctx.currentTime);
+      masterGain.gain.setValueAtTime(masterGain.gain.value, ctx.currentTime);
+      masterGain.gain.linearRampToValueAtTime(v, ctx.currentTime + 0.05);
     }
   });
 
